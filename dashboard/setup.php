@@ -23,7 +23,8 @@ if (file_exists("../config.php")) {
    }   
    // Create database...
    if (isset($_GET['createDB'])) {
-      if ($_POST['go'] == 'create') {
+      // Fixed: undefined index error 
+      if (isset($_POST['go']) && $_POST['go'] == 'create') {
          $handle = fopen($databaseSchema, "r");
          $createTable_events = fread($handle, filesize($databaseSchema));
 
