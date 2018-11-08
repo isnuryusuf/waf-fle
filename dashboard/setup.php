@@ -406,6 +406,8 @@ if (file_exists("../config.php")) {
     // in case of some error, exit
     if ($configphpError) {
         print "<b>Configuration file \"config.php\" has errors, check above what's wrong. After solved, run setup again!</b><br>";
+        //break statement no longer allowed inside php7 loop, replace with return false;
+        return false;
     } else {
         print "&nbsp;&nbsp; Config looks correct.<br>";
     }
@@ -505,6 +507,8 @@ if (file_exists("../config.php")) {
     if ($extensionError) {
         print "<b>Erro in PHP Extensions, check above what's wrong. After dependency solved, run setup again!</b><br>";
     }
+   	  //break statement no longer allowed inside php7 loop, replace with return false;
+        return false;
     print "<br />";
 
 
